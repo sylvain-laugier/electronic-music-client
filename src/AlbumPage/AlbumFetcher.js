@@ -16,6 +16,7 @@ export default class AlbumFetcher extends Component {
       goBackButton: false,
     };
     this.updateComponent = this.updateComponent.bind(this);
+    this.getRelations = this.getRelations.bind(this);
   }
 
   componentDidMount() {
@@ -28,37 +29,7 @@ export default class AlbumFetcher extends Component {
       this.updateComponent(nextProps, false);
     }
   }
-  updateComponent(props, firstCall) {
-    const startUpdating = new Date();
-    // get album first then the artist and merge the two
-    fetch(`${process.env.REACT_APP_API_URL}/albums/${props.match.params.id}`, {
-      method: 'GET',
-      headers: new Headers(apiKey),
-    })
-      .then(res => res.json())
-      .then((album) => {
-        fetch(`${process.env.REACT_APP_API_URL}/albums/artist/${props.match.params.id}`, {
-          method: 'GET',
-          headers: new Headers(apiKey),
-        })
-          .then(res => res.json())
-          .then((artist) => {
-            const albumObject = Object.assign({ artistName: artist.name }, album);
-            const finishedUpdating = new Date();
-            const loadingTime =
-            firstCall ?
-              Math.max(0, (startUpdating.getTime() - finishedUpdating.getTime()) + 2000)
-              : 0;
-            if (typeof album._id !== "undefined") {
-              setTimeout(() => (
-                this.setState({
-                  album: albumObject,
-                  loading: false,
-                })
-              ), loadingTime);
-            }
-          });
-      });
+  getRelations(props) {
     // Get all the related albums and set them in a rich choice array
     fetch(`${process.env.REACT_APP_API_URL}/albums/related/${props.match.params.id}`, {
       method: 'GET',
@@ -98,21 +69,52 @@ export default class AlbumFetcher extends Component {
           });
       });
   }
+  updateComponent(props, firstCall) {
+    const startUpdating = new Date();
+    // get album first then the artist and merge the two
+    fetch(`${process.env.REACT_APP_API_URL}/albums/${props.match.params.id}`, {
+      method: 'GET',
+      headers: new Headers(apiKey),
+    })
+      .then(res => res.json())
+      .then((album) => {
+        fetch(`${process.env.REACT_APP_API_URL}/albums/artist/${props.match.params.id}`, {
+          method: 'GET',
+          headers: new Headers(apiKey),
+        })
+          .then(res => res.json())
+          .then((artist) => {
+            const albumObject = Object.assign({ artistName: artist.name }, album);
+            const finishedUpdating = new Date();
+            const loadingTime =
+            firstCall ?
+              Math.max(0, (startUpdating.getTime() - finishedUpdating.getTime()) + 2000)
+              : 0;
+            if (typeof album._id !== "undefined") {
+              setTimeout(() => {
+                this.setState({
+                  album: albumObject,
+                  loading: false,
+                })
+                this.getRelations(props);
+              }, loadingTime);
+            }
+          });
+      });
+  }
+
+
   render() {
     const {
       album,
-      previousAlbum,
       richChoices,
-      previousChoice,
       loading,
       goBackButton,
     } = this.state;
     return loading ? null : (
       <AlbumPage
         album={album}
-        previousAlbum={previousAlbum}
         richChoices={richChoices}
-        previousChoice={previousChoice}
         goBackButton={goBackButton}
       />
     );
