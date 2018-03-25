@@ -22,7 +22,7 @@ class Choice extends Component {
   render() {
     return (
       <button
-        className="button button-album-page"
+        className={`button button-album-page ${this.state.loading ? '.button-album-page--active' : ''}`}
         onClick={() => {
           this.setState({
             loading: true,

@@ -351,9 +351,13 @@ a {
         height: 7rem;
         cursor: pointer;
         font-weight: 600;
-        text-transform: lowercase; }
+        text-transform: lowercase;
+        transition: background 400ms ease; }
         .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page p {
           margin: auto 0; }
+      .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page--active {
+        background: #00DEFF;
+        box-shadow: 0 0 0px #00DEFF, 0 0 5px #450100, 0 0 15px #00DEFF, 0 0 30px #450100; }
 
 /*album-page-global-container*/
 /* --------------------------------------------

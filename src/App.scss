@@ -523,10 +523,18 @@ a {
         cursor:pointer;
         font-weight: 600;
         text-transform: lowercase;
-
+        transition: background 400ms ease;
         p {
           margin:auto 0;
         }
+      }
+      .button-album-page--active {
+        background:#00DEFF;
+        box-shadow:
+          0 0 0px #00DEFF,
+          0 0 5px #450100,
+          0 0 15px #00DEFF,
+          0 0 30px #450100;
       }
 
     }/*album-page-choice-container*/
