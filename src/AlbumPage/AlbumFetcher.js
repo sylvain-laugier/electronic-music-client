@@ -11,9 +11,7 @@ export default class AlbumFetcher extends Component {
     super(props);
     this.state = {
       album: {},
-      previousAlbum: {},
       richChoices: [],
-      previousChoice: {},
       loading: true,
       goBackButton: false,
     };
@@ -21,20 +19,17 @@ export default class AlbumFetcher extends Component {
   }
 
   componentDidMount() {
-    this.updateComponent(this.props);
-    setTimeout(() => this.setState({ loading: false }), 1500);
+    this.updateComponent(this.props,true);
   }
 
   componentWillReceiveProps(nextProps) {
     // we check if a new id is given to the album fetcher, in that case we set the history in the state
     if (this.props.match.params.id !== nextProps.match.params.id) {
-      this.setState({
-        previousAlbum: nextProps.location.state ? nextProps.location.state.originAlbum : {},
-        previousChoice: nextProps.location.state ? nextProps.location.state.richChoice : {},
-      }, () => this.updateComponent(nextProps));
+      this.updateComponent(nextProps, false);
     }
   }
-  updateComponent(props) {
+  updateComponent(props, firstCall) {
+    const startUpdating = new Date();
     // get album first then the artist and merge the two
     fetch(`${process.env.REACT_APP_API_URL}/albums/${props.match.params.id}`, {
       method: 'GET',
@@ -49,7 +44,19 @@ export default class AlbumFetcher extends Component {
           .then(res => res.json())
           .then((artist) => {
             const albumObject = Object.assign({ artistName: artist.name }, album);
-            this.setState({ album: albumObject });
+            const finishedUpdating = new Date();
+            const loadingTime =
+            firstCall ?
+              Math.max(0, (startUpdating.getTime() - finishedUpdating.getTime()) + 2000)
+              : 0;
+            if (typeof album._id !== "undefined") {
+              setTimeout(() => (
+                this.setState({
+                  album: albumObject,
+                  loading: false,
+                })
+              ), loadingTime);
+            }
           });
       });
     // Get all the related albums and set them in a rich choice array
