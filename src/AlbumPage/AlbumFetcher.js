@@ -99,7 +99,7 @@ export default class AlbumFetcher extends Component {
     const startUpdating = new Date();
     const getAlbum = this.getAlbum(props);
     const getRelations = this.getRelations(props);
-
+    // we get promises for album and relations, then we wait for both to resolve
     Promise.all([getAlbum, getRelations]).then((values) => {
       const albumObject = values[0];
       const richChoices = values[1];

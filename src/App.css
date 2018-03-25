@@ -343,6 +343,12 @@ a {
         text-transform: lowercase; }
         .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page p {
           margin: auto 0; }
+      .Album-Page .album-page-global-album-container .album-page-choice-container .Loading-choice {
+        margin: auto; }
+        .Album-Page .album-page-global-album-container .album-page-choice-container .Loading-choice svg {
+          enable-background: new 0 0 50 50; }
+        .Album-Page .album-page-global-album-container .album-page-choice-container .Loading-choice svg path, .Album-Page .album-page-global-album-container .album-page-choice-container .Loading-choice svg rect {
+          fill: #fff; }
 
 /*album-page-global-container*/
 /* --------------------------------------------

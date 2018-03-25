@@ -509,6 +509,15 @@ a {
           margin:auto 0;
         }
       }
+      .Loading-choice {
+        margin:auto;
+        svg {
+          enable-background:new 0 0 50 50;
+        }
+        svg path,svg rect {
+          fill: #fff;
+        }
+      }
     }/*album-page-choice-container*/
   }/*album-page-global-album-container*/
 }/*album-page-global-container*/
