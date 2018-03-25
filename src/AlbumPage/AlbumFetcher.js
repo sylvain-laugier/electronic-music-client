@@ -17,10 +17,11 @@ export default class AlbumFetcher extends Component {
     };
     this.updateComponent = this.updateComponent.bind(this);
     this.getRelations = this.getRelations.bind(this);
+    this.getAlbum = this.getAlbum.bind(this);
   }
 
   componentDidMount() {
-    this.updateComponent(this.props,true);
+    this.updateComponent(this.props, true);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,42 +70,53 @@ export default class AlbumFetcher extends Component {
         });
     });
   }
-  updateComponent(props, firstCall) {
-    const startUpdating = new Date();
-    // get album first then the artist and merge the two
-    fetch(`${process.env.REACT_APP_API_URL}/albums/${props.match.params.id}`, {
-      method: 'GET',
-      headers: new Headers(apiKey),
-    })
-      .then(res => res.json())
-      .then((album) => {
-        fetch(`${process.env.REACT_APP_API_URL}/albums/artist/${props.match.params.id}`, {
-          method: 'GET',
-          headers: new Headers(apiKey),
-        })
-          .then(res => res.json())
-          .then((artist) => {
-            const albumObject = Object.assign({ artistName: artist.name }, album);
-            const finishedUpdating = new Date();
-            const loadingTime =
-            firstCall ?
-              Math.max(0, (startUpdating.getTime() - finishedUpdating.getTime()) + 2000)
-              : 0;
-            if (typeof album._id !== "undefined") {
-              setTimeout(() => (
-                this.getRelations(props, albumObject).then(richChoices =>
-                  this.setState({
-                    album: albumObject,
-                    loading: false,
-                    richChoices,
-                  }))
-              ), loadingTime);
-            }
-          });
-      });
+  getAlbum(props) {
+    return new Promise((resolve, reject) => {
+      // get album first then the artist and merge the two
+      fetch(`${process.env.REACT_APP_API_URL}/albums/${props.match.params.id}`, {
+        method: 'GET',
+        headers: new Headers(apiKey),
+      })
+        .then(res => res.json())
+        .then((album) => {
+          fetch(`${process.env.REACT_APP_API_URL}/albums/artist/${props.match.params.id}`, {
+            method: 'GET',
+            headers: new Headers(apiKey),
+          })
+            .then(res => res.json())
+            .then((artist) => {
+              const albumObject = Object.assign({ artistName: artist.name }, album);
+              if (typeof album._id !== "undefined") {
+                resolve(albumObject);
+              }
+              reject();
+            });
+        });
+    });
   }
 
+  updateComponent(props, firstCall) {
+    const startUpdating = new Date();
+    const getAlbum = this.getAlbum(props);
+    const getRelations = this.getRelations(props);
 
+    Promise.all([getAlbum, getRelations]).then((values) => {
+      const albumObject = values[0];
+      const richChoices = values[1];
+      const finishedUpdating = new Date();
+      const loadingTime =
+      firstCall ?
+        Math.max(0, (startUpdating.getTime() - finishedUpdating.getTime()) + 2000)
+        : 0;
+      setTimeout(() => (
+        this.setState({
+          album: albumObject,
+          loading: false,
+          richChoices,
+        })
+      ), loadingTime);
+    });
+  }
   render() {
     const {
       album,
