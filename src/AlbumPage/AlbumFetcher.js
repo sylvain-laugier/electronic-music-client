@@ -31,43 +31,43 @@ export default class AlbumFetcher extends Component {
   }
   getRelations(props) {
     // Get all the related albums and set them in a rich choice array
-    fetch(`${process.env.REACT_APP_API_URL}/albums/related/${props.match.params.id}`, {
-      method: 'GET',
-      headers: new Headers(apiKey),
-    })
-      .then(res => res.json())
-      .then((destinations) => {
-        fetch(`${process.env.REACT_APP_API_URL}/albums/relationships/${props.match.params.id}`, {
-          method: 'GET',
-          headers: new Headers(apiKey),
-        })
-          .then(res => res.json())
-          .then((choices) => {
-            this.setState({
-              goBackButton: this.context.router.history.length > 2,
-            });
-            if (choices.length > 0) {
-              const richChoices = choices
-                .map(choice => choice._fields[0])
-                .map((choice) => {
-                  const relativeDestination = destinations
-                    .map(destination => destination._fields[0])
-                    .find(destination => choice.end.low === destination.identity.low);
-                  return ({
-                    message: choice.properties.message,
-                    targetObj: relativeDestination.properties,
+    return new Promise((resolve, reject) => {
+      fetch(`${process.env.REACT_APP_API_URL}/albums/related/${props.match.params.id}`, {
+        method: 'GET',
+        headers: new Headers(apiKey),
+      })
+        .then(res => res.json())
+        .then((destinations) => {
+          fetch(`${process.env.REACT_APP_API_URL}/albums/relationships/${props.match.params.id}`, {
+            method: 'GET',
+            headers: new Headers(apiKey),
+          })
+            .then(res => res.json())
+            .then((choices) => {
+              this.setState({
+                goBackButton: this.context.router.history.length > 2,
+              });
+              if (choices.length > 0) {
+                const richChoices = choices
+                  .map(choice => choice._fields[0])
+                  .map((choice) => {
+                    const relativeDestination = destinations
+                      .map(destination => destination._fields[0])
+                      .find(destination => choice.end.low === destination.identity.low);
+                    return ({
+                      message: choice.properties.message,
+                      targetObj: relativeDestination.properties,
+                    });
                   });
+                resolve(richChoices);
+              } else {
+                this.setState({
+                  richChoices: [],
                 });
-              this.setState({
-                richChoices,
-              });
-            } else {
-              this.setState({
-                richChoices: [],
-              });
-            }
-          });
-      });
+              }
+            });
+        });
+    });
   }
   updateComponent(props, firstCall) {
     const startUpdating = new Date();
@@ -91,13 +91,14 @@ export default class AlbumFetcher extends Component {
               Math.max(0, (startUpdating.getTime() - finishedUpdating.getTime()) + 2000)
               : 0;
             if (typeof album._id !== "undefined") {
-              setTimeout(() => {
-                this.setState({
-                  album: albumObject,
-                  loading: false,
-                })
-                this.getRelations(props);
-              }, loadingTime);
+              setTimeout(() => (
+                this.getRelations(props, albumObject).then(richChoices =>
+                  this.setState({
+                    album: albumObject,
+                    loading: false,
+                    richChoices,
+                  }))
+              ), loadingTime);
             }
           });
       });
