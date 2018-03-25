@@ -251,6 +251,11 @@ a {
     0 0 30px #450100;
   display:flex;
   transition: box-shadow 0.4s ease-in;
+  border:none;
+  &:focus {
+    outline:0;
+  }
+
 
 }
 

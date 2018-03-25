@@ -171,7 +171,10 @@ a {
   border-radius: 3px;
   box-shadow: 0 0 0px #FB00EE, 0 0 5px #450100, 0 0 15px #FB00EE, 0 0 30px #450100;
   display: flex;
-  transition: box-shadow 0.4s ease-in; }
+  transition: box-shadow 0.4s ease-in;
+  border: none; }
+  .button:focus {
+    outline: 0; }
 
 .button:hover {
   box-shadow: 0 0 5px #FB00EE, 0 0 15px #450100, 0 0 30px #FB00EE, 0 0 60px #450100; }
