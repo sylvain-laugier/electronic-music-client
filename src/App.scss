@@ -529,12 +529,11 @@ a {
         }
       }
       .button-album-page--active {
-        background:#00DEFF;
         box-shadow:
-          0 0 0px #00DEFF,
-          0 0 5px #450100,
-          0 0 15px #00DEFF,
-          0 0 30px #450100;
+          0 0 10px #FB00EE,
+          0 0 30px #450100,
+          0 0 60px #FB00EE,
+          0 0 120px #450100;
       }
 
     }/*album-page-choice-containere*/
