@@ -330,6 +330,16 @@ a {
   width:100vw;
   overflow: hidden;
 
+  .Loading-choice {
+    margin:auto;
+    svg {
+      enable-background:new 0 0 50 50;
+    }
+    svg path,svg rect {
+      fill: #fff;
+    }
+  }
+
   .Album-Page-Header {
     color:#fff;
     background: #00DEFF;
@@ -416,6 +426,10 @@ a {
         justify-content: center;
         align-items: center;
         font-size:5rem;
+
+        p {
+          margin:0;
+        }
       }
     }
 
@@ -514,15 +528,7 @@ a {
           margin:auto 0;
         }
       }
-      .Loading-choice {
-        margin:auto;
-        svg {
-          enable-background:new 0 0 50 50;
-        }
-        svg path,svg rect {
-          fill: #fff;
-        }
-      }
+
     }/*album-page-choice-container*/
   }/*album-page-global-album-container*/
 }/*album-page-global-container*/
