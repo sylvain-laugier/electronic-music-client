@@ -5,23 +5,27 @@ import StreamsterTitle from '../AlbumHeaders/StreamsterTitle';
 import PrismTitle from '../AlbumHeaders/PrismTitle';
 
 const fontSizeGenerator = (size) => {
+  let baseSize = 4;
+  if (window.innerWidth < 1024) {
+    baseSize = 3;
+  }
   if (size <= 10) {
     return {
-      fontSize: '4rem',
-      top: '2rem',
+      fontSize: `${baseSize}rem`,
+      top: `${baseSize / 2}rem`,
     };
   }
   const difference = ((size - 10) * 2) / 10;
-  const fontSize = 4 - difference;
+  const fontSize = baseSize - difference;
   if (fontSize < 2) {
     return {
-      fontSize: '2rem',
-      top: '8rem',
+      fontSize: `${baseSize / 2}rem`,
+      top: `${baseSize * 2}rem`,
     };
   }
   return {
-    fontSize: `${4 - difference}rem`,
-    top: `${4 + difference}rem`,
+    fontSize: `${baseSize - difference}rem`,
+    top: `${baseSize + difference}rem`,
   };
 };
 
@@ -29,13 +33,11 @@ export default class AlbumContentHeader extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      styleArtist: {
-        fontSize: '4rem',
-        top: '2rem',
-      },
+      styleArtist: fontSizeGenerator(this.props.artistName.length),
     };
     this.renderHeader = this.renderHeader.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     if (typeof nextProps.artistName === 'string') {
       this.setState({

@@ -41,7 +41,7 @@ h1:hover, h1 span:hover, h2:hover, h2 span:hover, .streamster-title .prism-title
 
 @media (max-width: 400px) {
   html {
-    font-size: 25%; } }
+    font-size: 27.5%; } }
 
 body {
   overflow-x: hidden; }
@@ -98,12 +98,15 @@ a {
   60% {
     color: #00DEFF; } }
 
+/* --------------------------------------------
+       FOOTER-----------------------------------
+       --------------------------------------------*/
 .footer {
-  width: 100vw;
+  width: 98vw;
   height: 3vh;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 10px;
+  padding: 1rem;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -111,6 +114,9 @@ a {
   display: flex;
   align-items: center;
   overflow: hidden; }
+  @media (max-width: 1024px) {
+    .footer {
+      height: 5vh; } }
   .footer:hover {
     cursor: pointer; }
   .footer .footer-content {
@@ -125,6 +131,9 @@ a {
       font-weight: 500;
       font-size: 1.5rem;
       color: #fff; }
+      @media (max-width: 767px) {
+        .footer .footer-content p {
+          font-size: 2rem; } }
 
 .footer-hover:hover {
   background-color: rgba(0, 0, 0, 0.95);
@@ -140,7 +149,8 @@ a {
   .footer-open .footer-close-icon {
     margin-left: auto;
     width: 50px;
-    transition: all 300ms ease-out; }
+    transition: all 300ms ease-out;
+    margin-top: 2.5vw; }
     .footer-open .footer-close-icon:hover {
       cursor: pointer;
       transform: rotate(90deg); }
@@ -149,6 +159,9 @@ a {
     font-family: 'Lato', 'Roboto', sans-serif;
     font-weight: 300;
     padding: 5vw; }
+    @media (max-width: 1024px) {
+      .footer-open .footer-content--open {
+        font-size: 2.5rem; } }
     .footer-open .footer-content--open h1 {
       font-weight: 900;
       text-transform: uppercase; }
@@ -169,6 +182,12 @@ a {
 
 .home-headers-container {
   min-height: 450px; }
+  @media (max-width: 767px) {
+    .home-headers-container {
+      min-height: 320px; } }
+  @media (max-width: 400px) {
+    .home-headers-container {
+      min-height: 230px; } }
 
 .home-header-part-1 {
   font-family: "Prism", sans-serif;
@@ -183,6 +202,9 @@ a {
   top: 12rem;
   position: relative;
   max-height: 27rem; }
+  @media (max-width: 767px) {
+    .home-header-part-1 {
+      top: 1rem; } }
 
 .home-header-part-1:hover {
   text-shadow: 0 0 10px #FB00EE, 0 0 25px #450100, 0 0 50px #FB00EE, 0 0 75px #450100; }
@@ -201,6 +223,16 @@ a {
   margin: unset;
   top: -11vw;
   left: 52rem; }
+  @media (max-width: 1024px) {
+    .home-header-part-2 {
+      left: 42rem; } }
+  @media (max-width: 767px) {
+    .home-header-part-2 {
+      left: 0rem;
+      top: -5vw; } }
+  @media (max-width: 400px) {
+    .home-header-part-2 {
+      top: -7vw; } }
 
 /*
 .home-header-part-2:hover {
@@ -218,6 +250,9 @@ a {
 .home-button-container {
   display: flex;
   justify-content: space-between; }
+  @media (max-width: 767px) {
+    .home-button-container {
+      display: block; } }
 
 .button {
   background: #FB00EE;
@@ -235,6 +270,11 @@ a {
   display: flex;
   transition: box-shadow 0.4s ease-in;
   border: none; }
+  @media (max-width: 767px) {
+    .button {
+      float: left;
+      margin: 2%;
+      width: 46%; } }
   .button:focus {
     outline: 0; }
 
@@ -282,10 +322,17 @@ a {
         .Album-Page .Album-Page-Header h1 span:hover {
           cursor: pointer; }
   .Album-Page .album-page-ecouter-container {
-    width: 80vw;
-    margin: auto;
+    width: 100vw;
+    margin-left: 16rem;
     display: flex;
     animation: fadein 400ms ease-in; }
+    @media (max-width: 1024px) {
+      .Album-Page .album-page-ecouter-container {
+        width: 75vw;
+        margin-left: 15vw; } }
+    @media (max-width: 767px) {
+      .Album-Page .album-page-ecouter-container {
+        width: 100vw; } }
     .Album-Page .album-page-ecouter-container .streamster-title {
       font-family: "Streamster", sans-serif;
       font-size: 9rem;
@@ -297,18 +344,24 @@ a {
       transition: text-shadow 0.4s ease-in;
       z-index: 10;
       font-weight: bold; }
+      @media (max-width: 1024px) {
+        .Album-Page .album-page-ecouter-container .streamster-title {
+          font-size: 7rem; } }
       .Album-Page .album-page-ecouter-container .streamster-title:hover {
         cursor: default;
         text-shadow: 0 0 10px #00DEFF, 0 0 25px #450100, 0 0 50px #00DEFF, 0 0 75px #450100; }
   .Album-Page .album-page-global-album-container {
-    width: calc(1040px + 15vw);
+    width: 130rem;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
     /*album-page-container */
     /*album-page-choice-containere*/ }
+    @media (max-width: 1024px) {
+      .Album-Page .album-page-global-album-container {
+        width: 100%; } }
     .Album-Page .album-page-global-album-container .back-button-container {
-      height: 340px;
+      height: 35rem;
       display: flex;
       flex-flow: column;
       justify-content: space-evenly; }
@@ -325,10 +378,13 @@ a {
           margin: 0; }
     .Album-Page .album-page-global-album-container .Album-Page-Container {
       display: flex;
-      width: 700px;
+      width: 72rem;
       justify-content: space-between;
       flex-direction: column;
       /* album-content-container */ }
+      @media (max-width: 1024px) {
+        .Album-Page .album-page-global-album-container .Album-Page-Container {
+          width: 52.5rem; } }
       .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-header-background {
         background-color: rgba(0, 0, 0, 0.4);
         width: 100%;
@@ -362,15 +418,27 @@ a {
       .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container {
         display: flex;
         justify-content: space-between; }
+        @media (max-width: 1024px) {
+          .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container {
+            justify-content: center; } }
         .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container .album-cover {
           background-color: rgba(251, 0, 238, 0.5);
-          width: 340px;
-          height: 340px; }
+          width: 35rem;
+          height: 35rem; }
+          @media (max-width: 1024px) {
+            .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container .album-cover {
+              width: 52.5rem;
+              height: 52.5rem; } }
           .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container .album-cover img {
             width: 100%;
             height: 100%; }
         .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container .album-spotify-container {
-          text-align: center; }
+          text-align: center;
+          width: 35rem;
+          height: 35rem; }
+          @media (max-width: 1024px) {
+            .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container .album-spotify-container {
+              display: none; } }
           .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-container .album-spotify-container iframe {
             background: white; }
     .Album-Page .album-page-global-album-container .Album-Page-Container-minimized {
@@ -391,6 +459,9 @@ a {
         font-weight: 600;
         text-transform: lowercase;
         transition: background 400ms ease; }
+        @media (max-width: 1024px) {
+          .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page {
+            height: 8rem; } }
         .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page p {
           margin: auto 0; }
       .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page--active {

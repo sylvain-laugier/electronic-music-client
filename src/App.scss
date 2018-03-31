@@ -20,6 +20,8 @@ $tablet: 1024px;
 $mobile: 767px;
 $small-mobile:400px;
 
+$base-size: 35rem;
+
 html {
   font-size:62.5%;
 
@@ -61,7 +63,7 @@ h1, h1 span, h2, h2 span, .streamster-title .prism-title{
   }
 }
 @media (max-width: $small-mobile) {
-  html { font-size: 25%; }
+  html { font-size: 27.5%; }
 }
 
 
@@ -146,16 +148,18 @@ a {
 
     }
 
-
+    /* --------------------------------------------
+       FOOTER-----------------------------------
+       --------------------------------------------*/
 
 
 
     .footer {
-      width:100vw;
+      width:98vw;
       height:3vh;
       color:#fff;
       background-color:rgba(0,0,0,0.4);
-      padding:10px;
+      padding:1rem;
       position:absolute;
       bottom:0px;
       left:0px;
@@ -163,9 +167,15 @@ a {
       display: flex;
       align-items: center;
       overflow:hidden;
+
+      @media (max-width: $tablet) {
+        height:5vh;
+      }
+
       &:hover {
         cursor:pointer;
       }
+
       .footer-content {
         width:95%;
         margin:auto;
@@ -178,6 +188,10 @@ a {
           font-weight:500;
           font-size:1.5rem;
           color:#fff;
+
+          @media (max-width: $mobile) {
+            font-size:2rem;
+          }
         }
       }
 
@@ -201,6 +215,7 @@ a {
         margin-left: auto;
         width:50px;
         transition: all 300ms ease-out;
+        margin-top: 2.5vw;
         &:hover {
           cursor:pointer;
           transform: rotate(90deg);
@@ -211,6 +226,9 @@ a {
         font-family:'Lato', 'Roboto', sans-serif;
         font-weight:300;
         padding:5vw;
+        @media (max-width: $tablet) {
+          font-size:2.5rem;
+        }
 
         h1 {
           font-weight: 900;
@@ -245,6 +263,14 @@ a {
 
 .home-headers-container {
   min-height: 450px;
+
+  @media (max-width: $mobile) {
+    min-height: 320px;
+  }
+
+  @media (max-width: $small-mobile) {
+    min-height: 230px;
+  }
 }
 
 .home-header-part-1 {
@@ -264,6 +290,10 @@ a {
   top: 12rem;
   position: relative;
   max-height: 27rem;
+
+  @media (max-width: $mobile) {
+    top: 1rem;
+  }
 }
 
 .home-header-part-1:hover {
@@ -292,6 +322,19 @@ a {
   margin: unset;
   top: -11vw;
   left: 52rem;
+
+  @media (max-width: $tablet) {
+    left: 42rem;
+  }
+
+  @media (max-width: $mobile) {
+    left:0rem;
+    top:-5vw;
+  }
+
+  @media (max-width: $small-mobile) {
+    top:-7vw;
+  }
 }
 /*
 .home-header-part-2:hover {
@@ -311,6 +354,10 @@ a {
 .home-button-container {
   display:flex;
   justify-content: space-between;
+
+  @media (max-width: $mobile) {
+    display: block;
+  }
 
 }
 .button {
@@ -333,6 +380,13 @@ a {
   display:flex;
   transition: box-shadow 0.4s ease-in;
   border:none;
+
+  @media (max-width: $mobile) {
+    float:left;
+    margin:2%;
+    width:46%;
+  }
+
   &:focus {
     outline:0;
   }
@@ -423,10 +477,20 @@ a {
   }
 
   .album-page-ecouter-container {
-    width:80vw;
-    margin:auto;
+    width:100vw;
+    margin-left:16rem;
+
     display: flex;
     animation: fadein 400ms ease-in;
+
+    @media (max-width: $tablet) {
+      width:75vw;
+      margin-left:15vw;
+    }
+
+    @media (max-width: $mobile) {
+      width:100vw;
+    }
 
     .streamster-title {
       font-family: $streamster;
@@ -444,6 +508,10 @@ a {
       z-index:10;
       font-weight:bold;
 
+      @media (max-width: $tablet) {
+        font-size:7rem;
+      }
+
       &:hover {
         cursor:default;
         text-shadow:
@@ -456,13 +524,17 @@ a {
   }
 
   .album-page-global-album-container {
-    width: calc(1040px + 15vw);
+    width: 130rem;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
 
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+
     .back-button-container {
-      height: 340px;
+      height: $base-size;
       display: flex;
       flex-flow: column;
       justify-content: space-evenly;
@@ -485,9 +557,13 @@ a {
 
     .Album-Page-Container {
       display: flex;
-      width: 700px;
+      width: $base-size * 2 + 2rem;
       justify-content: space-between;
       flex-direction: column;
+
+      @media (max-width: $tablet) {
+        width: $base-size * 1.5;
+      }
 
       .album-content-header-background {
         background-color: rgba(0,0,0,0.4);
@@ -539,10 +615,19 @@ a {
       .album-content-container {
         display: flex;
         justify-content: space-between;
+
+        @media (max-width: $tablet) {
+          justify-content: center;
+        }
+
         .album-cover {
           background-color:rgba(251, 0, 238, 0.5);
-          width:340px;
-          height:340px;
+          width:$base-size;
+          height:$base-size;
+          @media (max-width: $tablet) {
+            width: $base-size * 1.5;
+            height: $base-size * 1.5;
+          }
           img {
             width:100%;
             height:100%;
@@ -550,6 +635,12 @@ a {
         }
         .album-spotify-container {
           text-align:center;
+          width:$base-size;
+          height:$base-size;
+
+          @media (max-width: $tablet) {
+            display:none;
+          }
 
           iframe {
             background:white;
@@ -577,6 +668,11 @@ a {
         font-weight: 600;
         text-transform: lowercase;
         transition: background 400ms ease;
+
+        @media (max-width: $tablet) {
+          height:8rem;
+        }
+
         p {
           margin:auto 0;
         }

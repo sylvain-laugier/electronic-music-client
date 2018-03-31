@@ -38,7 +38,7 @@ class HomeFooter extends Component {
             </svg>
           </div>
           <h1> What is this thing ?  </h1>
-          <p> This website was heavily inspired by {' '}
+          <p> The idea for this website was inspired by {' '}
             <a
               href="https://i.imgur.com/oUJNUUK.jpg"
               target="_blank"
