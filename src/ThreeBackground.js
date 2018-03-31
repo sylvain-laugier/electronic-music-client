@@ -65,14 +65,13 @@ export default class ThreeBackground extends React.Component {
   }
 
   render() {
-    const width = window.innerWidth; // canvas width
-    const height = window.innerHeight; // canvas height
     const style = {
       position: 'absolute',
       zIndex: -10,
       top: '0px',
     };
-
+    const width = this.props.canvasWidth;
+    const height = this.props.canvasHeight;
     return (<React3
       mainCamera="camera" // this points to the perspectiveCamera which has the name set to "camera" below
       width={width}
@@ -127,4 +126,6 @@ export default class ThreeBackground extends React.Component {
 
 ThreeBackground.propTypes = {
   transitionFromHome: PropTypes.bool.isRequired,
+  canvasWidth: PropTypes.number.isRequired,
+  canvasHeight: PropTypes.number.isRequired,
 };

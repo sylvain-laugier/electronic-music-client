@@ -11,10 +11,23 @@ class App extends Component {
     this.state = {
       transitionFromHome: false,
       counterHome: 0,
+      canvasWidth: window.innerWidth, // canvas width
+      canvasHeight: window.innerHeight, // canvas height
     };
     this.toggleTransitionFromHome = this.toggleTransitionFromHome.bind(this);
+    this.updateCanvasSize = this.updateCanvasSize.bind(this);
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.updateCanvasSize, true);
+  }
+
+  updateCanvasSize() {
+    return this.setState({
+      canvasWidth: window.innerWidth, // canvas width
+      canvasHeight: window.innerHeight, // canvas height
+    });
+  }
   toggleTransitionFromHome() {
     this.setState({
       transitionFromHome: !this.state.transitionFromHome,
@@ -29,6 +42,8 @@ class App extends Component {
           transitionFromHome={this.state.transitionFromHome}
           counterHome={this.state.counterHome}
           incrementCountHome={this.incrementCountHome}
+          canvasWidth={this.state.canvasWidth}
+          canvasHeight={this.state.canvasHeight}
         />
         <div className="background" />
         <Route

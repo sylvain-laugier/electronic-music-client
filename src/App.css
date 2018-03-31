@@ -101,8 +101,8 @@ a {
    HOME PAGE-----------------------------------
    --------------------------------------------*/
 .home-container {
-  width: 70vw;
-  max-width: 1170px;
+  width: 85vw;
+  max-width: 1440px;
   margin: auto; }
 
 .home-headers-container {
@@ -184,26 +184,30 @@ a {
 
 .footer {
   width: 100vw;
-  height: 5vh;
+  height: 3vh;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 10px;
   position: absolute;
   bottom: 0px;
   left: 0px;
+  transition: all 300ms ease-out;
   display: flex;
-  justify-content: flex-end;
-  padding-right: 15rem;
-  align-items: center;
-  transition: all 300ms ease-out; }
+  align-items: center; }
   .footer:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.8); }
-  .footer p {
-    margin: 0;
-    font-family: "Prism", sans-serif;
-    font-weight: bold;
-    font-size: 2rem; }
+  .footer .footer-content {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+    .footer .footer-content p {
+      margin: 0;
+      font-family: 'open-sans', sans-serif;
+      font-weight: bold;
+      font-size: 1.5rem; }
 
 .footer-open {
   height: 50vh;

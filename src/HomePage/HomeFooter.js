@@ -18,12 +18,12 @@ class HomeFooter extends Component {
   renderContent() {
     if (this.state.open) {
       return (
-        <div>
+        <div className="footer-content">
           <p> This is open !!! </p>
         </div>);
     }
     return (
-      <div>
+      <div className="footer-content">
         <p>About this website... </p>
       </div>
     );
