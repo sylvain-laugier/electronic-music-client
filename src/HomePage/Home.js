@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import HomeButton from './HomeButton';
-import HomeFooter from './HomeFooter';
+
 
 const Home = props => (
   <div className="home-container" >
@@ -16,7 +16,7 @@ const Home = props => (
 
     </div>
     <div className="explanation-container">
-      <h2>Welcome to this personnal guide to discovering electronic music. Please choose below a genre that you like and follow through</h2>
+      <h2>Welcome to this guide to discovering electronic music. Please choose below a genre that you like and follow through</h2>
     </div>
     <div className="home-button-container">
       <HomeButton
@@ -40,7 +40,6 @@ const Home = props => (
       > I like Daft Punk
       </HomeButton>
     </div>
-    <HomeFooter />
   </div>
 );
 
