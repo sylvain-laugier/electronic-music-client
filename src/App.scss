@@ -454,6 +454,10 @@ a {
     transition: background 0.3s ease-in;
     cursor:pointer;
 
+    @media (max-width: $mobile) {
+      width:100vw;
+    }
+
     &:hover {
       background: #FB00EE;
 
@@ -462,6 +466,9 @@ a {
     h1 {
       font-family: $prism;
       margin:0;
+      @media (max-width: $mobile) {
+        height: 5vh;
+      }
       &:hover {
         cursor:pointer;
       }
@@ -533,12 +540,23 @@ a {
       width: 100%;
     }
 
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .back-button-container {
       height: $base-size;
       display: flex;
       flex-flow: column;
       justify-content: space-evenly;
 
+      @media (max-width: $mobile) {
+        height:auto;
+        position: absolute;
+        left: 5vw ;
+        top: calc(50vh - 10rem);
+      }
       .back-button {
         width:10rem;
         border-radius:50%;
@@ -563,6 +581,14 @@ a {
 
       @media (max-width: $tablet) {
         width: $base-size * 1.5;
+      }
+
+      @media (max-width: $mobile) {
+        width: $base-size * 1.2;
+      }
+
+      @media (max-width: $small-mobile) {
+        width: $base-size;
       }
 
       .album-content-header-background {
@@ -607,6 +633,13 @@ a {
           top:4rem;
           left: 22rem;
           width:100%;
+          @media (max-width: $mobile) {
+            left:16rem;
+          }
+
+          @media (max-width: $small-mobile) {
+            left:14rem;
+          }
         }
       }
       .album-content-header-background--minimzed{
@@ -627,6 +660,15 @@ a {
           @media (max-width: $tablet) {
             width: $base-size * 1.5;
             height: $base-size * 1.5;
+          }
+          @media (max-width: $mobile) {
+            width: $base-size * 1.2 ;
+            height: $base-size * 1.2;
+          }
+
+          @media (max-width: $small-mobile) {
+            width: $base-size;
+            height: $base-size;
           }
           img {
             width:100%;
@@ -658,6 +700,14 @@ a {
       margin: 0px;
       height: 340px;
 
+      @media (max-width: $mobile) {
+        height:auto;
+      }
+      @media (max-width: $mobile) {
+        width:100vw;
+        display: block;
+      }
+
       .button-album-page {
         text-align: left;
         font-size:1.8rem;
@@ -671,6 +721,14 @@ a {
 
         @media (max-width: $tablet) {
           height:8rem;
+        }
+
+        @media (max-width: $mobile) {
+          width:46%;
+          float:left;
+          margin:2%;
+          height: 12rem;
+          font-size:2.75rem;
         }
 
         p {
@@ -716,10 +774,12 @@ a {
   justify-content: flex-end;
   width:200vw;
   overflow-x:hidden;
-}
 
+
+}
 .transistion-slide-container {
   width:100vw;
+
 }
 
 .albumAnimationRight-enter {
@@ -729,6 +789,11 @@ a {
 .albumAnimationRight-enter.albumAnimationRight-enter-active {
   transform: translate(-100vw);
   transition: transform 600ms ease;
+  .back-button-container {
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
 }
 
 .albumAnimationRight-leave {
@@ -738,6 +803,11 @@ a {
 .albumAnimationRight-leave.albumAnimationRight-leave-active {
   transform: translate(-100vw);
  transition: transform 600ms ease;
+ .back-button-container {
+   @media (max-width: $mobile) {
+     display: none;
+   }
+ }
 }
 
 .albumAnimationRight-appear {
@@ -747,6 +817,11 @@ a {
 .albumAnimationRight-appear.albumAnimationRight-appear-active {
   transform: translate(0vw);
  transition: transform 600ms ease ;
+ .back-button-container {
+   @media (max-width: $mobile) {
+     display: none;
+   }
+ }
 }
 
 .albumAnimationLeft-enter {
@@ -756,6 +831,11 @@ a {
 .albumAnimationLeft-enter.albumAnimationLeft-enter-active {
   transform: translate(-100vw);
   transition: transform 600ms ease;
+  .back-button-container {
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
 }
 
 .albumAnimationLeft-leave {
@@ -765,6 +845,11 @@ a {
 .albumAnimationLeft-leave.albumAnimationLeft-leave-active {
   transform: translate(100vw);
  transition: transform 600ms ease;
+ .back-button-container {
+   @media (max-width: $mobile) {
+     display: none;
+   }
+ }
 }
 .albumAnimationLeft-appear {
   transform: translate(100vw);
@@ -773,6 +858,11 @@ a {
 .albumAnimationLeft-appear.albumAnimationLeft-appear-active {
   transform: translate(0vw);
  transition: transform 600ms ease ;
+ .back-button-container {
+   @media (max-width: $mobile) {
+     display: none;
+   }
+ }
 }
 
 @-webkit-keyframes neon1 {
