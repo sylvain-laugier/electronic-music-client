@@ -60,6 +60,9 @@ a {
   z-index: 1000;
   pointer-events: none;
   animation: blink 6s infinite; }
+  @media (max-width: 767px) {
+    .background {
+      display: none; } }
 
 @-webkit-keyframes blink {
   0%, 40%, 70%, 100% {
@@ -102,7 +105,7 @@ a {
        FOOTER-----------------------------------
        --------------------------------------------*/
 .footer {
-  width: 98vw;
+  width: 100vw;
   height: 3vh;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
