@@ -14,7 +14,7 @@ PrismTitle.defaultProps = {
 };
 
 PrismTitle.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   classNameProp: PropTypes.string,
 };
 

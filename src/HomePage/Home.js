@@ -7,7 +7,6 @@ import HomeButton from './HomeButton';
 const Home = props => (
   <div className="home-container" >
     <div className="home-headers-container">
-
       <h1
         className="home-header-part-1"
       >Electronic music<br /> for people who<br /> don&apos;t like
@@ -37,7 +36,7 @@ const Home = props => (
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
         link="/7dxKtc08dYeRVHt3p9CZJn"
-      > I like Daft Punk
+      > Meh, I like Daft Punk
       </HomeButton>
     </div>
   </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class HomeFooter extends Component {
   constructor(props) {
@@ -56,23 +55,24 @@ class HomeFooter extends Component {
           </p>
           <p> Many thanks to him or her.</p>
           <p> This guide was made by one guy so personnal taste is heavily involved. </p>
-          <p> This guide doesn't want to be perfect : <br />
+          <p> This guide doesn&#39;t want to be perfect : <br />
                - It probably lacks a lot of classics<br />
-               - It probably features some album that you don't consider "good" or "true electronic" <br />
-               - It doesn't feature your favorite underground berliner deep tech house dj you're the only one to know about  <br />
+               - It probably features some album that you don&#39;t consider &quot;good&quot; or &quot;true electronic&quot; <br />
+               - It doesn&#39;t feature your favorite underground berliner deep tech house dj you&#39;re the only one to know about  <br />
           </p>
           <p> Creating a perfect electronic music bible was not the goal, I just wanted to create a nice website with nice music reccomandations.</p>
           <br />
           <p> I hope you will enjoy it. </p><br />
-          <p style={{fontStyle: 'italic', textAlign: 'right', fontSize: '2rem'}}> Created with love in France by Sylvain Laugier<br />
-          <a
-            href="https://github.com/Instant-Monkey"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{fontStyle: 'normal'}}
-          >
+          <p style={{ fontStyle: 'italic', textAlign: 'right', fontSize: '2rem' }}> Created with love in France by Sylvain Laugier<br />
+            <a
+              href="https://github.com/Instant-Monkey"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ fontStyle: 'normal' }}
+            >
             Check my GitHub profile
-          </a></p>
+            </a>
+          </p>
         </div>);
     }
     return (
@@ -85,7 +85,7 @@ class HomeFooter extends Component {
     );
   }
   render() {
-    return(
+    return (
       <div
         className={this.state.open ? 'footer footer-open' : 'footer footer-hover'}
         onClick={this.state.open ? null : this.toggleOpening}
@@ -95,9 +95,5 @@ class HomeFooter extends Component {
     );
   }
 }
-
-HomeFooter.propTypes = {
-
-};
 
 export default HomeFooter;

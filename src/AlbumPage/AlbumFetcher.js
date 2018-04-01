@@ -19,9 +19,14 @@ export default class AlbumFetcher extends Component {
     this.getRelations = this.getRelations.bind(this);
     this.getAlbum = this.getAlbum.bind(this);
   }
-
   componentDidMount() {
-    this.updateComponent(this.props, true);
+    console.log(this.props.transitionFromHome);
+    if (!this.props.transitionFromHome) {
+      this.props.toggleTransitionFromHome();
+      this.updateComponent(this.props, false);
+    } else {
+      this.updateComponent(this.props, true);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -155,4 +160,6 @@ AlbumFetcher.propTypes = {
       richChoice: PropTypes.PropTypes.shape(richChoiceShape).isRequired,
     }),
   }).isRequired,
+  transitionFromHome: PropTypes.bool.isRequired,
+  toggleTransitionFromHome: PropTypes.func.isRequired,
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import { albumShape, richChoiceShape } from '../lib/PropTypesValues';
 
@@ -10,10 +10,6 @@ import CurrentAlbum from './AlbumContent/CurrentAlbum';
 import ChoiceContainer from './Choices/ChoiceContainer';
 import StreamsterTitle from './AlbumHeaders/StreamsterTitle';
 import GoBack from './Choices/GoBack';
-
-const helpers = {
-  objectIsEmpty: obj => Object.keys(obj).length === 0 && obj.constructor === Object,
-};
 
 export default class AlbumPage extends Component {
   constructor(props) {
@@ -67,15 +63,8 @@ export default class AlbumPage extends Component {
   }
 }
 
-AlbumPage.defaultProps = {
-  previousAlbum: {},
-  previousChoice: [],
-};
-
 AlbumPage.propTypes = {
   album: PropTypes.shape(albumShape).isRequired,
   richChoices: PropTypes.arrayOf(PropTypes.shape(richChoiceShape)).isRequired,
-  previousAlbum: PropTypes.shape(albumShape),
-  previousChoice: PropTypes.shape(richChoiceShape),
   goBackButton: PropTypes.bool.isRequired,
 };

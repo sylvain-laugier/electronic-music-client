@@ -62,18 +62,13 @@ class App extends Component {
         <Route
           path="/:id"
           render={
-            ({ location, match }) => {
-              if (!this.state.transitionFromHome) {
-                this.toggleTransitionFromHome();
-              }
-              return (<AlbumFetcher
+            ({ location, match }) => (<AlbumFetcher
                 location={location}
                 match={match}
-                fromHome={this.state.transitionFromHome}
+                transitionFromHome={this.state.transitionFromHome}
                 toggleTransitionFromHome={this.toggleTransitionFromHome}
-              />);
+              />)
             }
-          }
         />
         <HomeFooter />
       </div>
