@@ -1,1 +1,1 @@
-web: react-scripts build
+worker: react-scripts build
