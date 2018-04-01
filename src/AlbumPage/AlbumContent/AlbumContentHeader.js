@@ -46,17 +46,21 @@ export default class AlbumContentHeader extends Component {
     }
   }
   renderHeader() {
+    let { albumName } = this.props;
+    if (window.innerWidth < 1024 && albumName.length > 20) {
+      albumName = `${albumName.substring(0, 20)}...`;
+    }
     if (this.props.minimized) {
       return (
         <div className="album-content-header-background album-content-header-background--minimzed" >
-          <PrismTitle>{`${this.props.albumName} `}</PrismTitle>
+          <PrismTitle>{`${albumName} `}</PrismTitle>
         </div>
       );
     }
     return (
       <div className="album-content-header-background" >
         <PrismTitle>
-          <div>{`${this.props.albumName} `}<br /> <span>by</span></div>
+          <div>{`${albumName} `}<br /> <span>by</span></div>
         </PrismTitle>
         <StreamsterTitle
           style={this.state.styleArtist}

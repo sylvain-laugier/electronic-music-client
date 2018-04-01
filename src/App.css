@@ -433,7 +433,7 @@ a {
           color: #00DEFF;
           position: absolute;
           text-transform: uppercase;
-          letter-spacing: 5px;
+          letter-spacing: 0.5rem;
           transform: rotate(-6deg);
           text-shadow: 0 0 0 #00DEFF, 0 0 5px #450100, 0 0 15px #00DEFF, 0 0 30px #450100;
           margin: 0;
