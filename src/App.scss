@@ -875,7 +875,7 @@ a {
 }
 
 .home-button-container a div {
-  animation: 400ms ease-in-out slideInFromLeft;
+  animation: 200ms ease-in-out slideInFromLeft;
   animation-fill-mode:forwards;
   opacity:0;
 }
@@ -883,13 +883,13 @@ a {
   animation-delay: 1s;
 }
 .home-button-container a:nth-child(2) div {
-  animation-delay: 1.2s;
+  animation-delay: 1.1s;
 }
 .home-button-container a:nth-child(3) div {
-  animation-delay: 1.4s;
+  animation-delay: 1.2s;
 }
 .home-button-container a:nth-child(4) div {
-  animation-delay: 1.6s;
+  animation-delay: 1.3s;
 }
 @keyframes slideInFromTop {
   0% {
