@@ -20,22 +20,22 @@ const Home = props => (
     <div className="home-button-container">
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
-        link="/7dxKtc08dYeRVHt3p9CZJn"
+        link={`/${process.env.REACT_APP_ROCK}`}
       > I like Rock
       </HomeButton>
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
-        link="/7dxKtc08dYeRVHt3p9CZJn"
+        link={`/${process.env.REACT_APP_RAP}`}
       > I like Rap
       </HomeButton>
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
-        link="/7dxKtc08dYeRVHt3p9CZJn"
+        link={`/${process.env.REACT_APP_METAL}`}
       > I like Metal
       </HomeButton>
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
-        link="/7dxKtc08dYeRVHt3p9CZJn"
+        link={`/${process.env.REACT_APP_DAFT}`}
       > Meh, I like Daft Punk
       </HomeButton>
     </div>
