@@ -20,7 +20,6 @@ export default class AlbumFetcher extends Component {
     this.getAlbum = this.getAlbum.bind(this);
   }
   componentDidMount() {
-    console.log(this.props.transitionFromHome);
     if (!this.props.transitionFromHome) {
       this.props.toggleTransitionFromHome();
       this.updateComponent(this.props, false);
