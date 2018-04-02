@@ -526,7 +526,7 @@ a {
 
 /*album-page-global-container*/
 .random-button {
-  width: 12vw;
+  width: 15vw;
   position: absolute;
   left: 44vw;
   bottom: 0px;
@@ -543,6 +543,8 @@ a {
   .random-button:hover {
     height: 5vh; }
   .random-button p {
+    margin: auto; }
+  .random-button .loader {
     margin: auto; }
   @media (max-width: 1024px) {
     .random-button {

@@ -15,7 +15,7 @@ const LoadingChoice = () => (
       viewBox="0 0 24 30"
       xmlSpace="preserve"
     >
-      <rect x="0" y="13" width="4" height="5" fill="#333">
+      <rect x="0" y="13" width="4" height="5" fill="#fff">
         <animate
           attributeName="height"
           attributeType="XML"
@@ -38,7 +38,7 @@ const LoadingChoice = () => (
         y="13"
         width="4"
         height="5"
-        fill="#333"
+        fill="#fff"
       >
         <animate
           attributeName="height"
@@ -62,7 +62,7 @@ const LoadingChoice = () => (
         y="13"
         width="4"
         height="5"
-        fill="#333"
+        fill="#fff"
       >
         <animate
           attributeName="height"

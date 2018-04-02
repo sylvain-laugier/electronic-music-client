@@ -757,7 +757,7 @@ a {
 
 
 .random-button {
-  width:12vw;
+  width:15vw;
   position:absolute;
   left:44vw;
   bottom:0px;
@@ -775,6 +775,9 @@ a {
     height:5vh;
   }
   p {
+    margin:auto;
+  }
+  .loader {
     margin:auto;
   }
   @media (max-width: $tablet) {
