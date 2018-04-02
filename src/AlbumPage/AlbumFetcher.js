@@ -81,7 +81,6 @@ export default class AlbumFetcher extends Component {
       })
         .then(res => res.json())
         .then((album) => {
-          console.log(album);
           fetch(`${process.env.REACT_APP_API_URL}/albums/artist/${props.match.params.id}`, {
             method: 'GET',
             headers: new Headers(apiKey),
