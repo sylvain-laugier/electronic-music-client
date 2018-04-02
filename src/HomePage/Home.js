@@ -26,7 +26,7 @@ const Home = props => (
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
         link={`/${process.env.REACT_APP_RAP}`}
-      > I like Rap
+      > I like Hip-hop
       </HomeButton>
       <HomeButton
         toggleTransitionFromHome={props.toggleTransitionFromHome}
