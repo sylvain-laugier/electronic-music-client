@@ -4,7 +4,6 @@ import './App.css';
 import ThreeBackground from './ThreeBackground';
 import AlbumFetcher from './AlbumPage/AlbumFetcher';
 import Home from './HomePage/Home';
-import HomeFooter from './HomePage/HomeFooter';
 
 class App extends Component {
   constructor(props) {
@@ -70,7 +69,6 @@ class App extends Component {
             />)
             }
         />
-        <HomeFooter />
       </div>
     );
   }

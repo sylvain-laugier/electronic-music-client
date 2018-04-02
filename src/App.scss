@@ -169,6 +169,7 @@ a {
       display: flex;
       align-items: center;
       overflow:hidden;
+      animation: 400ms ease-in-out slideInFromDown;
 
       @media (max-width: $tablet) {
         height:5vh;
@@ -771,6 +772,7 @@ a {
   box-shadow:none;
   border-radius: 0px;
   transition: all ease-in-out 200ms;
+  animation: 400ms ease-in-out slideInFromDown;
   &:hover {
     height:5vh;
   }
@@ -930,6 +932,15 @@ a {
   100% {
     transform: translateY(0);
     opacity:1;
+  }
+}
+
+@keyframes slideInFromDown {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

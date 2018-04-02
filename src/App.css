@@ -116,7 +116,8 @@ a {
   transition: all 300ms ease-out;
   display: flex;
   align-items: center;
-  overflow: hidden; }
+  overflow: hidden;
+  animation: 400ms ease-in-out slideInFromDown; }
   @media (max-width: 1024px) {
     .footer {
       height: 5vh; } }
@@ -539,7 +540,8 @@ a {
   text-transform: lowercase;
   box-shadow: none;
   border-radius: 0px;
-  transition: all ease-in-out 200ms; }
+  transition: all ease-in-out 200ms;
+  animation: 400ms ease-in-out slideInFromDown; }
   .random-button:hover {
     height: 5vh; }
   .random-button p {
@@ -656,6 +658,12 @@ a {
   100% {
     transform: translateY(0);
     opacity: 1; } }
+
+@keyframes slideInFromDown {
+  0% {
+    transform: translateY(100%); }
+  100% {
+    transform: translateY(0); } }
 
 @keyframes slideInFromLeft {
   0% {

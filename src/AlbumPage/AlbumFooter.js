@@ -31,7 +31,8 @@ class HomeFooter extends Component {
           .then(res => res.json())
           .then((album) => {
             const target = album._fields[0].properties._id;
-            this.setState({ loading: false }, () => this.context.router.history.push(`/${target}`));
+            this.props.setReverseAnim(false, () => this.context.router.history.push(`/${target}`));
+            setTimeout(() => this.setState({ loading: false }), 600);
           });
       });
     }

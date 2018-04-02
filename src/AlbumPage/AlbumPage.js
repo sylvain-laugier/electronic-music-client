@@ -10,6 +10,7 @@ import CurrentAlbum from './AlbumContent/CurrentAlbum';
 import ChoiceContainer from './Choices/ChoiceContainer';
 import StreamsterTitle from './AlbumHeaders/StreamsterTitle';
 import GoBack from './Choices/GoBack';
+import AlbumFooter from './AlbumFooter';
 
 export default class AlbumPage extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class AlbumPage extends Component {
     this.renderSlidingSection = this.renderSlidingSection.bind(this);
     this.setReverseAnim = this.setReverseAnim.bind(this);
     this.state = {
-      reverseAnim: true,
+      reverseAnim: false,
     };
   }
   setReverseAnim(bool, cb) {
@@ -38,7 +39,7 @@ export default class AlbumPage extends Component {
       >
         <div key={this.props.album._id} className="transistion-slide-container">
           <div className="album-page-global-album-container">
-            <GoBack display={this.props.goBackButton}setReverseAnim={this.setReverseAnim} />
+            <GoBack display={this.props.goBackButton} setReverseAnim={this.setReverseAnim} />
             <CurrentAlbum album={this.props.album} />
             <ChoiceContainer
               richChoices={this.props.richChoices}
@@ -58,6 +59,7 @@ export default class AlbumPage extends Component {
           Try To Listen To...
         </StreamsterTitle>
         {this.renderSlidingSection()}
+        <AlbumFooter setReverseAnim={this.setReverseAnim} />
       </div>
     );
   }
