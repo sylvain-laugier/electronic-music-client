@@ -105,14 +105,14 @@ a {
        FOOTER-----------------------------------
        --------------------------------------------*/
 .footer {
-  width: 100vw;
+  width: 15vw;
   height: 3vh;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 1rem;
   position: absolute;
   bottom: 0px;
-  left: 0px;
+  left: 85vw;
   transition: all 300ms ease-out;
   display: flex;
   align-items: center;
@@ -140,13 +140,17 @@ a {
 
 .footer-hover:hover {
   background-color: rgba(0, 0, 0, 0.95);
-  height: 7.5vh; }
+  height: 7.5vh;
+  width: 100vw;
+  left: 0vw; }
 
 .footer-open {
   height: 100vh;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.95);
   justify-content: center;
-  z-index: 10000; }
+  z-index: 10000;
+  left: 0px; }
   .footer-open:hover {
     cursor: default; }
   .footer-open .footer-close-icon {
@@ -521,6 +525,29 @@ a {
         box-shadow: 0 0 10px #FB00EE, 0 0 30px #450100, 0 0 60px #FB00EE, 0 0 120px #450100; }
 
 /*album-page-global-container*/
+.random-button {
+  width: 12vw;
+  position: absolute;
+  left: 44vw;
+  bottom: 0px;
+  height: 3vh;
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: lowercase;
+  box-shadow: none;
+  border-radius: 0px;
+  transition: all ease-in-out 200ms; }
+  .random-button:hover {
+    height: 5vh; }
+  .random-button p {
+    margin: auto; }
+  @media (max-width: 1024px) {
+    .random-button {
+      display: none; } }
+
 /* --------------------------------------------
    ANIMATIONS-----------------------------------
    --------------------------------------------*/

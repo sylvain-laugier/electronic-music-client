@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import LoadingChoice from '../AlbumPage/Choices/LoadingChoice';
+import apiKey from '../apiAuthentificate';
 
 class HomeFooter extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
+      loading: false,
     };
     this.toggleOpening = this.toggleOpening.bind(this);
     this.renderContent = this.renderContent.bind(this);
+    this.renderRandomButton = this.renderRandomButton.bind(this);
+    this.manageRandomClick = this.manageRandomClick.bind(this);
   }
   toggleOpening() {
     this.setState(prevState => ({
       open: !prevState.open,
     }));
+  }
+  manageRandomClick() {
+    if (!this.state.loading) {
+      this.setState({ loading: true }, () => {
+        fetch(`${process.env.REACT_APP_API_URL}/albums/random`, {
+          method: 'GET',
+          headers: new Headers(apiKey),
+        })
+          .then(res => res.json())
+          .then((album) => {
+            const target = album._fields[0].properties._id;
+            this.setState({ loading: false }, () => this.context.router.history.push(`/${target}`));
+          });
+      });
+    }
   }
   renderContent() {
     if (this.state.open) {
@@ -84,16 +106,32 @@ class HomeFooter extends Component {
       </div>
     );
   }
+  renderRandomButton() {
+    return this.state.loading ?
+      <LoadingChoice /> :
+      <p>I'm feeling curious</p>;
+  }
+
   render() {
     return (
-      <div
-        className={this.state.open ? 'footer footer-open' : 'footer footer-hover'}
-        onClick={this.state.open ? null : this.toggleOpening}
-      >
-        {this.renderContent()}
+      <div className="footer-container">
+        <div
+          className="random-button button button-album-page"
+          onClick={this.manageRandomClick}
+        >{this.renderRandomButton()}
+        </div>
+        <div
+          className={this.state.open ? 'footer footer-open' : 'footer footer-hover'}
+          onClick={this.state.open ? null : this.toggleOpening}
+        >
+          {this.renderContent()}
+        </div>
       </div>
+
     );
   }
 }
+
+HomeFooter.contextTypes = { router: PropTypes.object };
 
 export default HomeFooter;
