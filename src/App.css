@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import url("https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Rajdhani:700");
 @font-face {
   font-family: 'Streamster';
   font-style: normal;
@@ -59,7 +60,8 @@ a {
   height: 100vh;
   z-index: 1000;
   pointer-events: none;
-  animation: blink 6s infinite; }
+  animation: blink 6s infinite;
+  display: none; }
   @media (max-width: 767px) {
     .background {
       display: none; } }
@@ -109,10 +111,10 @@ a {
   height: 3vh;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
-  padding: 1rem;
+  padding: 0.5vw;
   position: absolute;
   bottom: 0px;
-  left: 85vw;
+  left: 84vw;
   transition: all 300ms ease-out;
   display: flex;
   align-items: center;
@@ -251,9 +253,11 @@ a {
     0 0 75px #450100;
 }*/
 .explanation-container h2 {
-  font-family: "Prism", sans-serif;
-  font-size: 3rem;
-  color: #fff; }
+  font-family: "Rajdhani", sans-serif;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  color: #fff;
+  line-height: 1; }
 
 .home-button-container {
   display: flex;
@@ -269,9 +273,10 @@ a {
   text-decoration: none;
   width: 20rem;
   height: 10rem;
-  font-family: "Prism", sans-serif;
+  font-family: "Rajdhani", sans-serif;
+  text-transform: uppercase;
   text-align: center;
-  font-size: 2.8rem;
+  font-size: 3rem;
   text-shadow: none;
   border-radius: 3px;
   box-shadow: 0 0 0px #FB00EE, 0 0 5px #450100, 0 0 15px #FB00EE, 0 0 30px #450100;
@@ -323,8 +328,9 @@ a {
     .Album-Page .Album-Page-Header:hover {
       background: #FB00EE; }
     .Album-Page .Album-Page-Header h1 {
-      font-family: "Prism", sans-serif;
-      margin: 0; }
+      font-family: "Rajdhani", sans-serif;
+      margin: 0;
+      text-transform: uppercase; }
       @media (max-width: 767px) {
         .Album-Page .Album-Page-Header h1 {
           height: 5vh; } }
@@ -332,7 +338,8 @@ a {
         cursor: pointer; }
       .Album-Page .Album-Page-Header h1 span {
         font-family: "Streamster", sans-serif;
-        font-size: 3.4rem; }
+        font-size: 3.4rem;
+        text-transform: lowercase; }
         .Album-Page .Album-Page-Header h1 span:hover {
           cursor: pointer; }
   .Album-Page .album-page-ecouter-container {
@@ -368,7 +375,7 @@ a {
     width: 130rem;
     display: flex;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: space-around;
     /*album-page-container */
     /*album-page-choice-containere*/ }
     @media (max-width: 1024px) {
@@ -382,7 +389,8 @@ a {
       height: 35rem;
       display: flex;
       flex-flow: column;
-      justify-content: space-evenly; }
+      justify-content: center;
+      align-items: center; }
       @media (max-width: 767px) {
         .Album-Page .album-page-global-album-container .back-button-container {
           height: auto;
@@ -397,7 +405,8 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 5rem; }
+        font-size: 5rem;
+        font-family: "Prism", sans-serif; }
         .Album-Page .album-page-global-album-container .back-button-container .back-button p {
           margin: 0; }
     .Album-Page .album-page-global-album-container .Album-Page-Container {
@@ -421,7 +430,8 @@ a {
         position: relative; }
         .Album-Page .album-page-global-album-container .Album-Page-Container .album-content-header-background .prism-title {
           display: block;
-          font-family: "Prism", sans-serif;
+          font-family: "Rajdhani", sans-serif;
+          text-transform: uppercase;
           color: #FB00EE;
           text-shadow: 0 0 0px #FB00EE, 0 0 5px #450100, 0 0 15px #FB00EE, 0 0 30px #450100;
           letter-spacing: 3px;
@@ -490,7 +500,7 @@ a {
     .Album-Page .album-page-global-album-container .album-page-choice-container {
       display: flex;
       flex-flow: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       margin: 0px;
       height: 340px; }
       @media (max-width: 767px) {
@@ -502,14 +512,14 @@ a {
           display: block; } }
       .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page {
         text-align: left;
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         width: 30rem;
         padding: 0.5rem;
         height: 7rem;
         cursor: pointer;
         font-weight: 600;
-        text-transform: lowercase;
-        transition: background 400ms ease; }
+        transition: background 400ms ease;
+        line-height: 1; }
         @media (max-width: 1024px) {
           .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page {
             height: 8rem; } }
@@ -533,11 +543,9 @@ a {
   bottom: 0px;
   height: 3vh;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   padding: 0.5rem;
   cursor: pointer;
-  font-weight: 600;
-  text-transform: lowercase;
   box-shadow: none;
   border-radius: 0px;
   transition: all ease-in-out 200ms;

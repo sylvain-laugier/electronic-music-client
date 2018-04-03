@@ -11,8 +11,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:700');
+
 
 $prism : 'Prism', sans-serif;
+$rajdhani : 'Rajdhani', sans-serif;
 $streamster: 'Streamster', sans-serif;
 $large-desktop: 1600px;
 $small-desktop: 1367px;
@@ -86,6 +89,7 @@ a {
     z-index:1000;
     pointer-events: none;
     animation: blink 6s infinite;
+    display: none;
     @media (max-width: $mobile) {
         display: none;
     }
@@ -161,10 +165,10 @@ a {
       height:3vh;
       color:#fff;
       background-color:rgba(0,0,0,0.4);
-      padding:1rem;
+      padding:0.5vw;
       position:absolute;
       bottom:0px;
-      left:85vw;
+      left:84vw;
       transition: all 300ms ease-out;
       display: flex;
       align-items: center;
@@ -353,9 +357,10 @@ a {
 }*/
 .explanation-container {
   h2 {
-    font-family: $prism;
-    font-size:3rem;
+    font-family: $rajdhani; text-transform:uppercase;
+    font-size:3.5rem;
     color:#fff;
+    line-height: 1;
   }
 }
 .home-button-container {
@@ -374,9 +379,9 @@ a {
   text-decoration: none;
   width:20rem;
   height:10rem;
-  font-family: $prism;
+  font-family: $rajdhani; text-transform:uppercase;
   text-align: center;
-  font-size:2.8rem;
+  font-size:3rem;
   text-shadow: none;
   border-radius: 3px;
   box-shadow:
@@ -471,17 +476,22 @@ a {
     }
 
     h1 {
-      font-family: $prism;
+      font-family: $rajdhani;
       margin:0;
+      text-transform: uppercase;
+
       @media (max-width: $mobile) {
         height: 5vh;
       }
+
       &:hover {
         cursor:pointer;
       }
+
       span {
         font-family: $streamster;
         font-size:3.4rem;
+        text-transform: lowercase;
         &:hover {
           cursor:pointer;
         }
@@ -541,7 +551,7 @@ a {
     width: 130rem;
     display: flex;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     @media (max-width: $tablet) {
       width: 100%;
@@ -556,7 +566,8 @@ a {
       height: $base-size;
       display: flex;
       flex-flow: column;
-      justify-content: space-evenly;
+      justify-content: center;
+      align-items:center;
 
       @media (max-width: $mobile) {
         height:auto;
@@ -564,6 +575,7 @@ a {
         left: 5vw ;
         top: calc(50vh - 10rem);
       }
+
       .back-button {
         width:10rem;
         border-radius:50%;
@@ -573,6 +585,7 @@ a {
         justify-content: center;
         align-items: center;
         font-size:5rem;
+        font-family:$prism;
 
         p {
           margin:0;
@@ -605,7 +618,7 @@ a {
 
         .prism-title {
           display: block;
-          font-family: $prism;
+          font-family: $rajdhani; text-transform:uppercase;
           color:#FB00EE;
           text-shadow:
             0 0 0px #FB00EE,
@@ -703,7 +716,7 @@ a {
     .album-page-choice-container {
       display:flex;
       flex-flow: column;
-      justify-content: space-evenly;
+      justify-content: space-between;
       margin: 0px;
       height: 340px;
 
@@ -717,14 +730,14 @@ a {
 
       .button-album-page {
         text-align: left;
-        font-size:1.8rem;
+        font-size:2.2rem;
         width:30rem;
         padding:0.5rem;
         height:7rem;
         cursor:pointer;
         font-weight: 600;
-        text-transform: lowercase;
         transition: background 400ms ease;
+        line-height: 1;
 
         @media (max-width: $tablet) {
           height:8rem;
@@ -764,11 +777,9 @@ a {
   bottom:0px;
   height:3vh;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   padding: 0.5rem;
   cursor: pointer;
-  font-weight: 600;
-  text-transform: lowercase;
   box-shadow:none;
   border-radius: 0px;
   transition: all ease-in-out 200ms;
