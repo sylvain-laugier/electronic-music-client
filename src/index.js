@@ -7,6 +7,30 @@ import apiKey from './apiAuthentificate';
 
 import registerServiceWorker from './registerServiceWorker';
 
+function detectIE() {
+  const ua = window.navigator.userAgent;
+
+  const msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    // IE 10 or older => return version number
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  const trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    // IE 11 => return version number
+    const rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+
+  // other browser
+  return false;
+}
+
+const version = detectIE();
+if (version !== false && version <= 11) {
+  alert("Oups ! It seems like you are using Internet Explorer, I'm sorry but this website is not compatible with this browser, please use a recent browser like Edge, Chrome or Firefox");
+}
 // test connectivity with api
 fetch(`${process.env.REACT_APP_API_URL}`, {
   method: 'GET',

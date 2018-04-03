@@ -48,7 +48,7 @@ class CuriousButton extends Component {
     return (
       <div
         className={this.state.loading ? "curious-loading random-button" : "random-button random-button--unopen button button-album-page"}
-        title="Click here to go to a random album "
+        title="Click here to go to a random album"
         onClick={this.isRandomClickAllowed}
       >{this.renderCuriousButton()}
       </div>
