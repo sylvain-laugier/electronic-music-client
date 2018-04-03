@@ -32,7 +32,7 @@ class CuriousButton extends Component {
         const currentId = this.context.router.route.match.params.id;
         if (currentId !== target) {
           this.props.setReverseAnim(false, () => this.context.router.history.push(`/${target}`));
-          setTimeout(() => this.setState({ loading: false }), 600);
+          setTimeout(() => this.setState({ loading: false }), 1000);
         } else {
           this.manageRandomClick();
         }

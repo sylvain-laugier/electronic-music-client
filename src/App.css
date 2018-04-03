@@ -478,7 +478,8 @@ a {
     .footer {
       height: 5vh; } }
   .footer:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    z-index: 20; }
   .footer .footer-content {
     width: 95%;
     margin: auto;
@@ -551,7 +552,7 @@ a {
   transition: all ease-in-out 200ms;
   transition-property: width, height, left, bottom;
   animation: 400ms ease-in-out slideInFromDown;
-  z-index: 10000;
+  z-index: 10;
   color: #FB00EE; }
   .random-button p {
     margin: auto; }
@@ -564,19 +565,22 @@ a {
 .random-button--unopen {
   color: #fff;
   transition: all ease-in-out 200ms;
-  transition-property: color, width, height, left, bottom; }
+  transition-property: border-radius, color, width, height, left, bottom; }
   .random-button--unopen:hover {
-    height: 5vh; }
+    height: 5vh;
+    border-radius: 50% 50% 0 0;
+    box-shadow: none; }
 
 .curious-loading {
   width: 200vw;
   height: 200vh;
-  border-radius: 50%;
+  border-radius: 50% 50% 0 0;
   left: -50vw;
   bottom: -50vh;
   background: #FB00EE;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  cursor: default; }
   .curious-loading div {
     display: flex;
     flex-direction: column;
