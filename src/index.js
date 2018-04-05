@@ -29,7 +29,9 @@ function detectIE() {
 
 const version = detectIE();
 if (version !== false && version <= 11) {
-  alert("Oups ! It seems like you are using Internet Explorer, I'm sorry but this website is not compatible with this browser, please use a recent browser like Edge, Chrome or Firefox");
+  setTimeout(() => alert("Oups ! It seems like you are using Internet Explorer," +
+  " I'm sorry but this website is not compatible with this browser," +
+  " please use a recent browser like Edge, Chrome or Firefox"), 2500);
 }
 // test connectivity with api
 fetch(`${process.env.REACT_APP_API_URL}`, {
