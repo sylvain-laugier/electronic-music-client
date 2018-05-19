@@ -63,7 +63,7 @@ class AlbumFooter extends Component {
                - It probably features some album that you don&#39;t consider &quot;good&quot; or &quot;true electronic&quot; <br />
                - It doesn&#39;t feature your favorite underground berliner deep tech house dj you&#39;re the only one to know about  <br />
           </p>
-          <p> Creating a perfect electronic music bible was not the goal, I just wanted to create a nice website with nice music reccomandations.</p>
+          <p> Creating a perfect electronic music bible was not the goal, I just wanted to create a nice website with nice music recommendation.</p>
           <br />
           <p> I hope you will enjoy it. </p><br />
           <p style={{ fontStyle: 'italic', textAlign: 'right', fontSize: '2rem' }}> Created with love in France by Sylvain Laugier<br />
