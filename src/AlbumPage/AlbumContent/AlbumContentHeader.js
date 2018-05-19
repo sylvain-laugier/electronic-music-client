@@ -20,7 +20,7 @@ const fontSizeGenerator = (size) => {
   if (fontSize < 2) {
     return {
       fontSize: `${baseSize / 2}rem`,
-      top: `${baseSize * 2}rem`,
+      top: `${baseSize}rem`,
     };
   }
   return {
