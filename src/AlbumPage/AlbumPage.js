@@ -53,12 +53,14 @@ export default class AlbumPage extends Component {
   }
   render() {
     return (
-      <div className="Album-Page">
-        <Link to="/"><AlbumPageHeader /></Link>
-        <StreamsterTitle classNameProp="album-page-ecouter-container">
-          Try To Listen To...
-        </StreamsterTitle>
-        {this.renderSlidingSection()}
+      <div>
+        <div className="Album-Page">
+          <Link to="/"><AlbumPageHeader /></Link>
+          <StreamsterTitle classNameProp="album-page-ecouter-container">
+            Try To Listen To...
+          </StreamsterTitle>
+          {this.renderSlidingSection()}
+        </div>
         <AlbumFooter setReverseAnim={this.setReverseAnim} />
       </div>
     );
