@@ -8,7 +8,7 @@ import { albumShape, richChoiceShape } from '../lib/PropTypesValues';
 import AlbumPageHeader from './AlbumPageHeader';
 import CurrentAlbum from './AlbumContent/CurrentAlbum';
 import ChoiceContainer from './Choices/ChoiceContainer';
-import StreamsterTitle from './AlbumHeaders/StreamsterTitle';
+import Title from './AlbumHeaders/Title';
 import GoBack from './Choices/GoBack';
 import AlbumFooter from './AlbumFooter';
 
@@ -24,7 +24,7 @@ export default class AlbumPage extends Component {
   setReverseAnim(bool, cb) {
     this.setState({
       reverseAnim: bool,
-    }, () => cb());
+    }, cb);
   }
   renderSlidingSection() {
     return (
@@ -56,9 +56,9 @@ export default class AlbumPage extends Component {
       <div>
         <div className="Album-Page">
           <Link to="/"><AlbumPageHeader /></Link>
-          <StreamsterTitle classNameProp="album-page-ecouter-container">
+          <Title font="streamster" classNameProp="album-page-ecouter-container">
             Try To Listen To...
-          </StreamsterTitle>
+          </Title>
           {this.renderSlidingSection()}
         </div>
         <AlbumFooter setReverseAnim={this.setReverseAnim} />

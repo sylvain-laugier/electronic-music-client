@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import StreamsterTitle from '../AlbumHeaders/StreamsterTitle';
-import PrismTitle from '../AlbumHeaders/PrismTitle';
+import Title from './Title';
 
 const fontSizeGenerator = (size) => {
   let baseSize = 4;
-  if (window.innerWidth < 1024) {
+  const mobile = window.innerWidth < 1024;
+  if (mobile) {
     baseSize = 3;
   }
   if (size <= 10) {
     return {
       fontSize: `${baseSize}rem`,
-      top: `${baseSize / 2}rem`,
+      top: mobile ? `${baseSize}rem` : `${baseSize / 3}rem`,
     };
   }
   const difference = ((size - 10) * 2) / 10;
@@ -20,12 +20,13 @@ const fontSizeGenerator = (size) => {
   if (fontSize < 2) {
     return {
       fontSize: `${baseSize / 2}rem`,
-      top: `${baseSize}rem`,
+      top: mobile ? `${baseSize}rem` :`${baseSize / 2}rem`,
+      left: `${baseSize * 2}rem`,
     };
   }
   return {
     fontSize: `${baseSize - difference}rem`,
-    top: `${(baseSize / 2) - difference}rem`,
+    top: mobile ? `${(baseSize)}rem` : `${(baseSize / 2) - difference}rem`,
   };
 };
 
@@ -50,23 +51,17 @@ export default class AlbumContentHeader extends Component {
     if (window.innerWidth < 1024 && albumName.length > 20) {
       albumName = `${albumName.substring(0, 20)}...`;
     }
-    if (this.props.minimized) {
-      return (
-        <div className="album-content-header-background album-content-header-background--minimzed" >
-          <PrismTitle>{`${albumName} `}</PrismTitle>
-        </div>
-      );
-    }
     return (
       <div className="album-content-header-background" >
-        <PrismTitle>
-          <div>{`${albumName} `}<br /> <span>by</span></div>
-        </PrismTitle>
-        <StreamsterTitle
+        <Title font="prism">
+          <div>{albumName}<br /> <span>by</span></div>
+        </Title>
+        <Title
+          font="streamster"
           style={this.state.styleArtist}
         >
-          {`${this.props.artistName}`}
-        </StreamsterTitle>
+          {this.props.artistName}
+        </Title>
       </div>
     );
   }

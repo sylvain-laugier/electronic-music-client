@@ -582,6 +582,7 @@ a {
           margin: 2rem 0 1rem 5rem;
           line-height: 3.5rem;
           font-weight: bold;
+          padding: 0.5rem;
 
           span {
             font-size: 2rem;
@@ -616,8 +617,6 @@ a {
           }
         }
       }
-
-      .album-content-header-background--minimzed {}
 
       .album-content-container {
         display: flex;

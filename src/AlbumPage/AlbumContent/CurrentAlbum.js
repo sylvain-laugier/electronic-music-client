@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { albumShape } from '../../lib/PropTypesValues';
 
-import AlbumContentHeader from './AlbumContentHeader';
+import AlbumContentHeader from '../AlbumHeaders/AlbumContentHeader';
 import AlbumContentContainer from './AlbumContentContainer';
 
 const CurrentAlbum = ({ album }) => (
