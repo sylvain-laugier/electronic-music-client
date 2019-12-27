@@ -21,7 +21,7 @@ const fontSizeGenerator = (size) => {
     return {
       fontSize: `${baseSize / 2}rem`,
       top: mobile ? `${baseSize * 2}rem` :`${baseSize / 2}rem`,
-      left: `${baseSize * 2}rem`,
+      left: `${baseSize * 3}rem`,
     };
   }
   return {
@@ -48,14 +48,17 @@ export default class AlbumContentHeader extends Component {
   }
   renderHeader() {
     let { albumName } = this.props;
+    let smallFont = false;
     if (window.innerWidth < 1024 && albumName.length > 20) {
       albumName = `${albumName.substring(0, 20)}...`;
+      smallFont = true;
     } else if (albumName.length > 32) {
       albumName = `${albumName.substring(0, 32)}...`;
+      smallFont = true;
     }
     return (
       <div className="album-content-header-background" >
-        <Title font="prism">
+        <Title font="prism" style={{fontSize: smallFont ? '3rem' : '4rem'}}>
           <div>{albumName}<br /> <span>by</span></div>
         </Title>
         <Title
