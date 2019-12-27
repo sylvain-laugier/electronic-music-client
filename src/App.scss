@@ -94,7 +94,7 @@ h2 span,
 
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 a {
@@ -710,7 +710,7 @@ a {
           width: 46%;
           float: left;
           margin: 2%;
-          height: 12rem;
+          height: 9rem;
           font-size: 2.75rem;
         }
 
@@ -725,6 +725,20 @@ a {
           0 0 30px #450100,
           0 0 60px #FB00EE,
           0 0 120px #450100;
+      }
+
+      .rabbit-hole-container {
+        margin: 0 auto;
+        padding-left: 1rem;
+        max-width: 300px;
+        
+        h2 {
+          font-family: $rajdhani;
+          text-transform: uppercase;
+          font-size: 3rem;
+          color: #fff;
+          line-height: 1.2;
+        }
       }
 
     }
@@ -751,6 +765,13 @@ a {
 
 
 
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
 
 
 .footer {
@@ -863,7 +884,6 @@ a {
 .random-button {
   width: 15vw;
   position: absolute;
-  left: 44vw;
   bottom: 0px;
   height: 3vh;
   text-align: center;
@@ -877,6 +897,9 @@ a {
   animation: 400ms ease-in-out slideInFromDown;
   z-index: 10;
   color: #FB00EE;
+  margin-bottom: 0;
+  min-height: 30px;
+  min-width: 100px;
 
   p {
     margin: auto;
@@ -886,9 +909,6 @@ a {
     margin: auto;
   }
 
-  @media (max-width: $tablet) {
-    display: none;
-  }
 }
 
 .random-button--unopen {
@@ -904,11 +924,10 @@ a {
 }
 
 .curious-loading {
-  width: 200vw;
+  width: 100vw;
   height: 200vh;
   border-radius: 50% 50% 0 0;
-  left: -50vw;
-  bottom: -50vh;
+  bottom: 0;
   background: #FB00EE;
   display: flex;
   justify-content: center;
@@ -918,15 +937,20 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow-y: hidden;
 
     p {
       margin: 0;
       font-size: 3rem;
       color: #FFF;
       font-weight: bold;
+      top: 50vh;
+      position: relative;
     }
 
     .loader {
+      top: 50vh;
+      position: relative;
       margin: 0 auto;
     }
   }

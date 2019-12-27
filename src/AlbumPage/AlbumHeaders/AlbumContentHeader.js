@@ -12,21 +12,21 @@ const fontSizeGenerator = (size) => {
   if (size <= 10) {
     return {
       fontSize: `${baseSize}rem`,
-      top: mobile ? `${baseSize}rem` : `${baseSize / 3}rem`,
+      top: mobile ? `${baseSize * 2}rem` : `${baseSize / 3}rem`,
     };
   }
   const difference = ((size - 10) * 2) / 10;
   const fontSize = baseSize - difference;
-  if (fontSize < 2) {
+  if (fontSize < 2.5) {
     return {
       fontSize: `${baseSize / 2}rem`,
-      top: mobile ? `${baseSize}rem` :`${baseSize / 2}rem`,
+      top: mobile ? `${baseSize * 2}rem` :`${baseSize / 2}rem`,
       left: `${baseSize * 2}rem`,
     };
   }
   return {
     fontSize: `${baseSize - difference}rem`,
-    top: mobile ? `${(baseSize)}rem` : `${(baseSize / 2) - difference}rem`,
+    top: mobile ? `${(baseSize * 2)}rem` : `${(baseSize / 2) - difference}rem`,
   };
 };
 
@@ -50,6 +50,8 @@ export default class AlbumContentHeader extends Component {
     let { albumName } = this.props;
     if (window.innerWidth < 1024 && albumName.length > 20) {
       albumName = `${albumName.substring(0, 20)}...`;
+    } else if (albumName.length > 32) {
+      albumName = `${albumName.substring(0, 32)}...`;
     }
     return (
       <div className="album-content-header-background" >

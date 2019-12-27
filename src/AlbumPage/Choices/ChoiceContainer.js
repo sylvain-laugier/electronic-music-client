@@ -20,7 +20,13 @@ const ChoiceContainer = ({ originAlbum, richChoices, setReverseAnim }) => {
       </div>
     );
   }
-  return null;
+  return ( <div className="album-page-choice-container">
+    <div className="rabbit-hole-container">
+      <h2>No more choices from here !</h2>
+      <h2>You're a curious one and went down the rabbit hole, nice ! </h2>
+      <h2>Feel free to go back or to start over ! </h2>
+    </div>
+  </div>);
 };
 
 ChoiceContainer.propTypes = {

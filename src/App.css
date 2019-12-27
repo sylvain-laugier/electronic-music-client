@@ -49,7 +49,7 @@ h2 span:hover,
     font-size: 27.5%; } }
 
 body {
-  overflow-x: hidden; }
+  overflow: hidden; }
 
 a {
   text-decoration: none !important; }
@@ -460,17 +460,34 @@ a {
             width: 46%;
             float: left;
             margin: 2%;
-            height: 12rem;
+            height: 9rem;
             font-size: 2.75rem; } }
         .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page p {
           margin: auto 0; }
       .Album-Page .album-page-global-album-container .album-page-choice-container .button-album-page--active {
         box-shadow: 0 0 10px #FB00EE, 0 0 30px #450100, 0 0 60px #FB00EE, 0 0 120px #450100; }
+      .Album-Page .album-page-global-album-container .album-page-choice-container .rabbit-hole-container {
+        margin: 0 auto;
+        padding-left: 1rem;
+        max-width: 300px; }
+        .Album-Page .album-page-global-album-container .album-page-choice-container .rabbit-hole-container h2 {
+          font-family: "Rajdhani", sans-serif;
+          text-transform: uppercase;
+          font-size: 3rem;
+          color: #fff;
+          line-height: 1.2; }
 
 /*album-page-global-container*/
 /* --------------------------------------------
    FOOTER-----------------------------------
    --------------------------------------------*/
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100vw; }
+
 .footer {
   width: 15vw;
   height: 3vh;
@@ -552,7 +569,6 @@ a {
 .random-button {
   width: 15vw;
   position: absolute;
-  left: 44vw;
   bottom: 0px;
   height: 3vh;
   text-align: center;
@@ -565,14 +581,14 @@ a {
   transition-property: width, height, left, bottom;
   animation: 400ms ease-in-out slideInFromDown;
   z-index: 10;
-  color: #FB00EE; }
+  color: #FB00EE;
+  margin-bottom: 0;
+  min-height: 30px;
+  min-width: 100px; }
   .random-button p {
     margin: auto; }
   .random-button .loader {
     margin: auto; }
-  @media (max-width: 1024px) {
-    .random-button {
-      display: none; } }
 
 .random-button--unopen {
   color: #fff;
@@ -584,11 +600,10 @@ a {
     box-shadow: none; }
 
 .curious-loading {
-  width: 200vw;
+  width: 100vw;
   height: 200vh;
   border-radius: 50% 50% 0 0;
-  left: -50vw;
-  bottom: -50vh;
+  bottom: 0;
   background: #FB00EE;
   display: flex;
   justify-content: center;
@@ -596,13 +611,18 @@ a {
   .curious-loading div {
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: center;
+    overflow-y: hidden; }
     .curious-loading div p {
       margin: 0;
       font-size: 3rem;
       color: #FFF;
-      font-weight: bold; }
+      font-weight: bold;
+      top: 50vh;
+      position: relative; }
     .curious-loading div .loader {
+      top: 50vh;
+      position: relative;
       margin: 0 auto; }
 
 /* --------------------------------------------
