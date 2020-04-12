@@ -4,8 +4,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import apiKey from './apiAuthentificate';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 import registerServiceWorker from './registerServiceWorker';
+
+if (process.env.NODE_ENV === 'production') {
+  disableReactDevTools();
+}
 
 function detectIE() {
   const ua = window.navigator.userAgent;
@@ -29,15 +34,22 @@ function detectIE() {
 
 const version = detectIE();
 if (version !== false && version <= 11) {
-  setTimeout(() => alert("Oups ! It seems like you are using Internet Explorer," +
-  " I'm sorry but this website is not compatible with this browser," +
-  " please use a recent browser like Edge, Chrome or Firefox"), 2500);
+  setTimeout(
+    () =>
+      alert(
+        'Oups ! It seems like you are using Internet Explorer,' +
+          " I'm sorry but this website is not compatible with this browser," +
+          ' please use a recent browser like Edge, Chrome or Firefox'
+      ),
+    2500
+  );
 }
 // test connectivity with api
 fetch(`${process.env.REACT_APP_API_URL}`, {
   method: 'GET',
-  headers: new Headers(apiKey),
-}).then(res => res.json())
+  headers: new Headers(apiKey)
+})
+  .then(res => res.json())
   .then(response => response)
   .catch(err => console.error(err));
 
@@ -45,6 +57,6 @@ ReactDOM.render(
   <Router>
     <App />
   </Router>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 registerServiceWorker();
