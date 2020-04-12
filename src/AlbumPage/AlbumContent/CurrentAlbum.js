@@ -13,33 +13,31 @@ export default class CurrentAlbum extends Component {
   }
 
   renderContent() {
-    const {name, artistName, image, url } = this.props.album;
+    const { name, artistName, image, url } = this.props.album;
     return (
-    <div><AlbumContentHeader
-      albumName={name}
-      artistName={artistName}
-    />
-    <AlbumContentContainer
-      imageUrl={image}
-      spotifyUrl={url}
-    /></ div >)
+      <div>
+        <AlbumContentHeader albumName={name} artistName={artistName} />
+        <AlbumContentContainer imageUrl={image} spotifyUrl={url} />
+      </div>
+    );
   }
 
   render() {
-    const {url } = this.props.album;
+    const { url } = this.props.album;
     return (
-    <div className="Album-Page-Container">
-      {window.innerWidth < 1024 ?
-      <a href={url} target="_blank">
-        {this.renderContent()}
-      </a>
-      : this.renderContent()}
-    </div>) 
+      <div className="Album-Page-Container">
+        {window.innerWidth < 1024 ? (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {this.renderContent()}
+          </a>
+        ) : (
+          this.renderContent()
+        )}
+      </div>
+    );
   }
-
 }
 
 CurrentAlbum.propTypes = {
-  album: PropTypes.shape(albumShape).isRequired,
+  album: PropTypes.shape(albumShape).isRequired
 };
-
